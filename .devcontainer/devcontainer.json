@@ -1,0 +1,6 @@
+{
+  "name": "sample-github-go-action",
+  "dockerComposeFile": "../docker-compose.yaml",
+  "service": "sample-github-go-action",
+  "workspaceFolder": "/workspace"
+}

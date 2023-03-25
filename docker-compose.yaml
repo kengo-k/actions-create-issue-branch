@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  sample-github-go-action:  
+    image: ghcr.io/kengo-k/dev-base-golang:202303201146-3ae3f1d
+    container_name: sample-github-go-action
+    volumes:
+      - ./:/workspace
+      - $HOME/.ssh:/home/container-user/.ssh
+    working_dir: /workspace
+    tty: true
