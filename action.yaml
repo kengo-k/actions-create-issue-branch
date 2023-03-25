@@ -1,0 +1,10 @@
+name: 'My Docker Action'
+description: 'An example Docker action in Go'
+inputs:
+  example-input:
+    description: 'An example input'
+    required: true
+    default: 'Hello, world!'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
