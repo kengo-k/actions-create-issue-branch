@@ -1,11 +1,11 @@
-name: 'My Docker Action'
-description: 'An example Docker action in Go'
-inputs:
-  message:
-    description: 'An example input'
-    required: true
+name: "create-branch-on-issue"
+description: "Build and Push Docker Images automatically"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  env:
-    MESSAGE: ${{ inputs.message }}
+  using: "composite"
+  steps:
+    - name: Create new branch
+      run: |
+        ISSUE_NUMBER=${{ github.event.issue.number }}
+        BRANCH_NAME="issue-${ISSUE_NUMBER}"
+        git checkout -b "${BRANCH_NAME}"
+        git push origin "${BRANCH_NAME}"
