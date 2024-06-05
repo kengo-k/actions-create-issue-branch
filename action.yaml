@@ -1,8 +1,18 @@
-name: "create-branch-on-issue"
-description: "Build and Push Docker Images automatically"
+name: "create-issue-branch"
+description: "Create a branch based on the issue number"
+inputs:
+  token:
+    description: "GitHub Token"
+    required: true
 runs:
   using: "composite"
   steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        token: ${{ inputs.token }}
+
     - name: Create new branch
       run: |
         ISSUE_NUMBER=${{ github.event.issue.number }}

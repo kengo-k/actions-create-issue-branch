@@ -1,0 +1,14 @@
+name: Test for create-issue-branch
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Create branch
+        uses: kengo/create-branch-on-issue@main
+        with:
+          token: ${{ secrets.GHCR_TOKEN }}
